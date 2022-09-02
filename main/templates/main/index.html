@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Датчики</title>
+</head>
+<body>
+<div class="header">
+<h1>Датчики</h1>
+</div>
+<table>
+    <thead>
+    <tr>
+    <th>№</th>
+    <th>Название</th>
+    <th>Тип</th>
+    <th>Температура</th>
+    <th>Влажность</th>
+    </tr>
+    </thead>
+    {% for sensor in sensors %}
+    <tr>
+        <td>{{sensor.num}}</td>
+        <td>{{sensor.name}}</td>
+        <td>{{sensor.type}}</td>
+        <td>
+        {% if sensor.temperature %}
+            {{sensor.temperature}} &degC
+        {% else %}
+            -
+        {% endif %}
+        </td>
+
+        <td>
+        {% if sensor.humidity %}
+            {{sensor.humidity}} %
+        {% else %}
+            -
+        {% endif %}
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+
+</html>
+<style>
+    table{
+        width: 80vw;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        border-collapse: collapse;
+    }
+    tr{
+        border-bottom: solid 1px gray;
+    }
+    td{
+        text-align: center;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .header{
+        text-align: center;
+    }
+    thead{
+        border-bottom: solid 2px black
+    }
+</style>

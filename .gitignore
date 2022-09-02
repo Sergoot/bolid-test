@@ -1,0 +1,10 @@
+*.log
+
+
+.pyc
+*.pyc
+
+media/
+static/
+__pycache__/
+migrations/
